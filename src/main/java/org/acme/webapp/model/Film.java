@@ -5,6 +5,8 @@ import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "film", schema = "sakila")
@@ -50,6 +52,15 @@ public class Film {
     @ColumnDefault("CURRENT_TIMESTAMP")
     @Column(name = "last_update", nullable = false)
     private Instant lastUpdate;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "film_actor",
+            joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id")
+    )
+
+    private Set<Actor> actors = new HashSet<>();
 
     public Short getId() {
         return id;
