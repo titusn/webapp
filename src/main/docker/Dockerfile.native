@@ -7,11 +7,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native -t quarkus/webapp .
+# docker build -f src/main/docker/Dockerfile.native -t quarkus/webapp-kata .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/webapp
+# docker run -i --rm -p 8080:8080 quarkus/webapp-kata
 #
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.9
