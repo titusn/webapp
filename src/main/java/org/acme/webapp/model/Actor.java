@@ -9,7 +9,7 @@ import org.hibernate.annotations.ColumnDefault;
 import java.time.Instant;
 
 @Entity
-@Table(name = "actor")
+@Table(name = "actor", schema = "sakila")
 public class Actor {
     @Id
     @Column(name = "actor_id", nullable = false)

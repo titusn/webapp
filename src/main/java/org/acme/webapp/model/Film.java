@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 
 @Entity
-@Table(name = "film")
+@Table(name = "film", schema = "sakila")
 public class Film {
     @Id
     @Column(name = "film_id", nullable = false)
@@ -40,11 +40,11 @@ public class Film {
 
     @ColumnDefault("'G'")
     @Lob
-    @Column(name = "rating")
+    @Column(name = "rating", columnDefinition = "ENUM('G', 'PG', 'PG-13', 'R', 'NC-17')")
     private String rating;
 
     @Lob
-    @Column(name = "special_features")
+    @Column(name = "special_features", columnDefinition = "set('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes')")
     private String specialFeatures;
 
     @ColumnDefault("CURRENT_TIMESTAMP")
